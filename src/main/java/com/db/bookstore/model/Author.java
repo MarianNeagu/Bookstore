@@ -20,4 +20,12 @@ public class Author {
     private String name;
     private int birthYear;
 
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", birthYear=" + birthYear +
+                '}';
+    }
 }
