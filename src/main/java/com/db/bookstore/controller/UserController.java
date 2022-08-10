@@ -103,6 +103,13 @@ public class UserController {
     public ModelAndView addBook(@ModelAttribute BookDTO bookDTO, @ModelAttribute Book bookToAdd) {
         Set<String> authorsNamesSelected = bookDTO.getSelectedAuthorsNames();
         Set<Author> authorsSelected = new HashSet<>();
+        ModelAndView modelAndView = new ModelAndView("book-add-message");
+
+        // handle the case where there isn't any author selected
+        if (authorsNamesSelected.size() == 0){
+            modelAndView.addObject("message", "ERROR! You must select at least 1 author!");
+            return modelAndView;
+        }
 
         // insert the author list for the added book
         for(String authorName: authorsNamesSelected){
@@ -114,7 +121,8 @@ public class UserController {
 //        // insert the book
         bookService.addBook(bookToAdd);
 
-        return new ModelAndView("book-added");
+        modelAndView.addObject("message", "Book added successfully!");
+        return modelAndView;
     }
 
 

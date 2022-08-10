@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -8,7 +8,7 @@
 </head>
 <body>
     <form th:action="@{/add-book}" method="get">
-        <p>Book added successfully!</p>
+        <p th:text="${message}"></p>
         <button class="btn btn-primary" type="submit">Go back</button>
     </form>
 </body>
