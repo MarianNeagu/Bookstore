@@ -22,12 +22,10 @@ public class UserService {
        {
            throw new Exception("No user found");
        }
-
        if(users.size() == 1)
        {
            return users.get(0);
        }
-
        if(users.size() > 1)
        {
            throw new Exception("Database error");
@@ -36,6 +34,8 @@ public class UserService {
         return null;
     }
 
-
+    public User findById(int id) throws Exception {
+        return userRepository.findById(id);
+    }
 
 }
