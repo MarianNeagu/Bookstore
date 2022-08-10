@@ -9,6 +9,5 @@
         <p th:text="'Hello ' + *{username} + '!'"></p>
     </div>
    <p th:each="book:${bookList}" th:text="${book.title} + ' ' + ${book.authorList}"></p>
-
 </body>
 </html>
